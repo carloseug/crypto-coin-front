@@ -1,0 +1,35 @@
+<div class="table-list">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>
+                <h3 style="text-align: center;">Actions</h3>
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button (click)="deleteCoin(element)">
+                <mat-icon style="font-size: 14px;">delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+          <h3 style="text-align: center;">{{this.group.name}}</h3>
+        </th>
+        <td mat-cell *matCellDef="let element" [ngStyle]="{ 'color': element.price_usd > 0 ? 'green' : 'red' }">
+          {{ element.name }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="price_usd">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by price_usd">
+          <h3 style="text-align: center;">Price (USD)</h3>
+        </th>
+        <td mat-cell *matCellDef="let element" [ngStyle]="{ 'color': element.price_usd > 0 ? 'green' : 'red' }">
+          {{ element.price_usd }}
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

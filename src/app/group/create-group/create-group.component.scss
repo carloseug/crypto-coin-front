@@ -1,0 +1,26 @@
+.example-form {
+    width: 80%;
+  }
+  
+.example-full-width {
+    width: 80%;
+}
+  
+.mat-mdc-form-field-error {
+    font-size: 10px;
+    color: red;
+    text-align: right;
+}
+
+.mdc-text-field--filled .mdc-line-ripple::before{
+    border-bottom-width: 0px !important;
+}
+
+.label {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.input {
+    margin-top: 25px;
+}

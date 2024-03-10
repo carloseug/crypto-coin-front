@@ -1,0 +1,13 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+      <h1 mat-dialog-title>{{ data.title }}</h1>
+      <div mat-dialog-content>
+        <p>{{ data.message }}</p>
+      </div>
+      <div mat-dialog-actions>
+        <button mat-button style="color: red"(click)="onNoClick()">Cancelar</button>
+        <button mat-button style="color:green"color="warn" (click)="onYesClick()">Confirmar</button>
+      </div>
+    </div>
+  </div>
+  

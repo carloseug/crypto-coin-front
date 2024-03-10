@@ -1,0 +1,31 @@
+.table-list{
+    padding-top: 60px;
+}
+
+.mdc-data-table__table{
+    max-width: 80%;
+    min-width: 80%;
+    margin: 0 auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+  
+.create-icon {
+    margin-right: 8px; 
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; 
+    margin-bottom: 20px; 
+    padding-right: 10%;
+}
+
+.create-card {
+    position: absolute;
+    top: 60px;
+    right: 15%;
+    padding: 20px; // Adicione o preenchimento desejado
+    background-color: #ffffff; // Adicione a cor de fundo desejada
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); // Adicione a sombra desejada
+}  

@@ -1,0 +1,28 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{tittle}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content style="padding-top: 15px;">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <label>Name</label>
+        <input type="text" matInput [formControl]="nameFormControl">
+        @if (nameFormControl.hasError('required')) {
+          <mat-error>name is <strong>required</strong></mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field class="example-full-width" style="margin-top: 15px;">
+        <label>Description</label>
+        <input type="text" matInput [formControl]="descFormControl">
+        @if (descFormControl.hasError('required')) {
+          <mat-error>description is <strong>required</strong></mat-error>
+        }
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button style="color: green;" (click)="this.onSubmit()">Confirm</button>
+  </mat-card-actions>
+</mat-card>
+
+  

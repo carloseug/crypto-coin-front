@@ -1,0 +1,14 @@
+.modal-dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.modal-content {
+    width: 400px; 
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  
