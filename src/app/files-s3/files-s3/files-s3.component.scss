@@ -1,0 +1,35 @@
+.file-cont{
+    padding-top: 60px;
+}
+
+.image-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative; /* Adicionado para posicionar o card-footer corretamente */
+}
+
+.card-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Cor de fundo do footer */
+    padding: 10px;
+    text-align: center;
+}
+
+.card-footer button {
+    background-color: #ff6347; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.card-footer button:hover {
+    background-color: #cc473d; /* Cor de fundo do botão quando hover */
+}
+  
+  

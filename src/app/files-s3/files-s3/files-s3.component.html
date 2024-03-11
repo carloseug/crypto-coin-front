@@ -1,0 +1,18 @@
+<div class="file-cont">
+    <!-- Botão para selecionar arquivo -->
+    <input type="file" (change)="onFileSelected($event)" accept="image/*" style="display: none;" #fileInput>
+    <button (click)="fileInput.click()">Selecionar Arquivo</button>
+    <span *ngIf="selectedFile">Arquivo selecionado: {{ selectedFile.name }}</span>
+    <button (click)="uploadFile()">Upload</button>
+  </div>
+  
+  <div class="image-grid">
+    <!-- Exibir imagens já cadastradas -->
+    <div class="image-card" *ngFor="let file of files">
+      <img [src]="file.file_url" alt="Imagem {{ file.id }}">
+      <div class="card-footer">
+        <button (click)="removeImage(file.id)">Remover</button>
+      </div>
+    </div>
+  </div>
+  

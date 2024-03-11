@@ -29,13 +29,7 @@ export class AppComponent {
   toggleFiller() {
     this.showFiller = !this.showFiller;
   }
-
-  showDinamicTable(table: string){
-    //table == 'coins' ? this.showCoinTable = true : this.showCoinTable = false;
-    //this.drawer.toggle();
-    this.navigateTo(table);
-  }
-
+  
   navigateTo(route: string): void {
     this.router.navigate([route]);
   }

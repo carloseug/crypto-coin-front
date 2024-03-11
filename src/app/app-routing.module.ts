@@ -5,6 +5,7 @@ import { GroupComponent } from './group/group/group.component';
 import { ShowCoinComponent } from './coin/show-coin/show-coin.component';
 import { CreateGroupComponent } from './group/create-group/create-group.component';
 import { ShowGroupComponent } from './group/show-group/show-group.component';
+import { FilesS3Component } from './files-s3/files-s3/files-s3.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'coins', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'groups/create', component: CreateGroupComponent },
   { path: 'groups/edit/:id', component: CreateGroupComponent },
   { path: 'groups/detail/:id', component: ShowGroupComponent },
+  { path: 'files', component: FilesS3Component },
 ];
 
 @NgModule({

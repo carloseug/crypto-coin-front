@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { GroupModule } from './group/group.module';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FilesS3Module } from './files-s3/files-s3.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatIconModule,
     MatListModule,
     CoinModule,
-    GroupModule
+    GroupModule,
+    FilesS3Module
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,15 +4,19 @@
     
     <mat-drawer #drawer class="sidenav" mode="side">
         <mat-nav-list>
-            <button mat-button (click)="showDinamicTable('coins')">
+            <button mat-button (click)="navigateTo('coins')">
               <mat-icon>monetization_on</mat-icon>
               <p>Coins</p>
             </button>
             <br>
-            <button mat-button (click)="showDinamicTable('groups')">
+            <button mat-button (click)="navigateTo('groups')">
                 <mat-icon>group_work</mat-icon>
               <p>Groups</p>
             </button>
+            <button mat-button (click)="navigateTo('files')">
+              <mat-icon>image</mat-icon>
+            <p>Files</p>
+          </button>
           </mat-nav-list>
     </mat-drawer>
     
