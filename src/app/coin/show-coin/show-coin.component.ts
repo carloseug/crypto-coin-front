@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CoinService } from '../../api/coin.service';
 import { Coin } from '../../models/coin.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-show-coin',
@@ -9,15 +10,20 @@ import { Coin } from '../../models/coin.model';
 })
 
 export class ShowCoinComponent implements OnInit {
-  @Input() coinId!: number; 
   dataSource: Coin[] = [];
   displayedColumns: string[] = ['name', 'market_cap', 'price_usd', 'volume_24h', 'change_24h']; 
+  coinId!: number;
 
   constructor(
-    private coinService: CoinService
+    private coinService: CoinService,
+    private route: ActivatedRoute
     ) {}
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.coinId = params['id'];
+    });
+  
     this.getCoinData(); 
   }
   

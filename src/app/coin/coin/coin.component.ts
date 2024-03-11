@@ -3,7 +3,7 @@ import { CoinService } from '../../api/coin.service';
 import { Coin } from '../../models/coin.model';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-coin',
@@ -14,15 +14,13 @@ export class CoinComponent implements OnInit, AfterViewInit {
   coins: Coin[] = [];
   displayedColumns: string[] = ['name'];
   dataSource = new MatTableDataSource<Coin>(this.coins);
-  coinId!: number;
   
   sortBy = 'price_usd';
   sortOrder = 'desc';
-  showCoinDetail: boolean = false;
 
   constructor(
     private coinService: CoinService,
-    private _liveAnnouncer: LiveAnnouncer
+    private router: Router
   ) {}
 
   @ViewChild(MatSort)
@@ -48,9 +46,8 @@ export class CoinComponent implements OnInit, AfterViewInit {
       });
   }
 
-  handleRowClick(id: number) {
-    this.coinId = id;
-    this.showCoinDetail = true;
+  navigateToShowCoinDetail(id: number){
+    this.router.navigate(['/coins/detail', id]);
   }
 
   fetchCoins(){

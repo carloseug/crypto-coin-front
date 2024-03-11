@@ -3,8 +3,9 @@ import { GroupService } from '../../api/group.service';
 import { Group } from '../../models/group.model';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-group',
@@ -13,19 +14,16 @@ import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component'
 })
 export class GroupComponent implements OnInit, AfterViewInit {
   groups: Group[] = [];
-  displayedColumns: string[] = ['actions', 'name', 'description'];
+  displayedColumns: string[] = ['name', 'description', 'actions'];
   dataSource = new MatTableDataSource<Group>(this.groups);
-  createCard: boolean = false;
-  bindGroup?: Group;
-  showGroupDetail: boolean = false;
-  groupDetail!: Group;
   
   sortBy = 'name';
   sortOrder = 'asc';
 
   constructor(
     private groupService: GroupService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router
   ) {}
 
   @ViewChild(MatSort)
@@ -51,24 +49,10 @@ export class GroupComponent implements OnInit, AfterViewInit {
       });
   }
 
-  handleCloseCreate(): void {
-    this.createCard = !this.createCard;
-    this.loadGroups();
-  }
-
-  createGroup(){
-    this.createCard = !this.createCard;
-  }
-
-  editGroup(group: Group){
-    this.bindGroup = group;
-    this.createGroup();
-  }
-
   deleteGroup(group: Group): void {
     const dialogRef = this.dialog.open(ConfirmModalComponent, {
       width: '250px',
-      data: { message: 'Tem certeza de que deseja excluir este grupo?' }
+      data: { message: 'Please confirm that you want to remove this group' }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -80,7 +64,6 @@ export class GroupComponent implements OnInit, AfterViewInit {
           },
           error => {
             console.error('Erro ao excluir grupo:', error);
-            // Lide com o erro aqui, se necessário
           }
         );
       }
@@ -88,8 +71,18 @@ export class GroupComponent implements OnInit, AfterViewInit {
     
   }
 
-  handleRowClick(group: Group) {
-    this.groupDetail = group;
-    this.showGroupDetail = true;
+  navigateToShowGroupDetail(group: Group){
+    let id = group.id;
+    let name = group.name;
+    this.router.navigate(['/groups/detail', id], {state: {groupName: name}});
+  }
+
+  navigateToCreateGroup(){
+    this.router.navigate(['/groups/create']);
+  }
+
+  editGroup(group: Group){
+    let id = group.id;
+    this.router.navigate(['/groups/edit', id], {state: {group: group}});
   }
 }

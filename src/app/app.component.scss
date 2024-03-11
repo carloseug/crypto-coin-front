@@ -11,6 +11,11 @@ mat-toolbar {
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
+
+mat-drawer-container {
+  z-index: 9999;
+}
+
 .sidenav{
   position: fixed;
   top: 40px;

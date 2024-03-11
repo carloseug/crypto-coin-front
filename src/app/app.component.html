@@ -17,7 +17,6 @@
     </mat-drawer>
     
     <div class="sidenav-content">
-        <app-coin *ngIf="this.showCoinTable"></app-coin>
-        <app-group *ngIf="!this.showCoinTable"></app-group>
+      <router-outlet></router-outlet>
     </div>
 </mat-drawer-container>

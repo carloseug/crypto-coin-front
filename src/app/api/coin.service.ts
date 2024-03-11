@@ -13,7 +13,7 @@ export class CoinService {
   constructor(private http: HttpClient) {}
 
   fetchCoins(): Observable<Coin[]> {
-    const url = `${this.baseUrl}`;
+    const url = `${environment.apiUrl}/fetch-coins`;
     return this.http.get<Coin[]>(url);
   }
 

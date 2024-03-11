@@ -19,17 +19,16 @@ export class CreateGroupComponent implements OnInit {
   nameFormControl = new FormControl('', [Validators.required]);
   descFormControl = new FormControl('', [Validators.required]);
 
-  @Output() closeClicked = new EventEmitter<void>();
-
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private groupService: GroupService
   ) {}
 
-  @Input() bindGroup?: Group;
+  bindGroup?: Group;
 
   ngOnInit(): void {
+    this.bindGroup = history.state.group;
     if (this.bindGroup) {
       this.isEditMode = true;
       this.nameFormControl.setValue(this.bindGroup.name);
@@ -40,6 +39,9 @@ export class CreateGroupComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.nameFormControl.markAsTouched();
+    this.descFormControl.markAsTouched();
+
     if (this.nameFormControl.invalid || this.descFormControl.invalid) {
       return;
     }
@@ -71,9 +73,6 @@ export class CreateGroupComponent implements OnInit {
   }
 
   close(): void {
-    this.bindGroup = undefined;
-    this.nameFormControl.setValue(null);
-    this.descFormControl.setValue(null);
-    this.closeClicked.emit();
+    this.router.navigate(['/groups']);
   }
 }

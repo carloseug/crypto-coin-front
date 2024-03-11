@@ -1,5 +1,5 @@
 
-<div class="table-list" *ngIf="!this.showCoinDetail">
+<div class="table-list">
   <div class="button-container">
     <button color="accent" (click)="fetchCoins()">
       <mat-icon>update</mat-icon>
@@ -18,8 +18,6 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="handleRowClick(row.id)"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="navigateToShowCoinDetail(row.id)"></tr>
   </table>
 </div>
-
-<app-show-coin [coinId]="coinId" *ngIf="this.showCoinDetail"></app-show-coin>

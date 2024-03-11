@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ShowCoinComponent } from './show-coin/show-coin.component';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -21,10 +22,12 @@ import { MatIconModule } from '@angular/material/icon';
     MatTableModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    MatIconModule
+    MatIconModule,
+    RouterModule
   ],
   exports:[
-    CoinComponent
+    CoinComponent,
+    ShowCoinComponent
   ]
 })
 export class CoinModule { }

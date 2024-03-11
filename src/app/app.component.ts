@@ -31,8 +31,8 @@ export class AppComponent {
   }
 
   showDinamicTable(table: string){
-    table == 'coins' ? this.showCoinTable = true : this.showCoinTable = false;
-    this.drawer.toggle();
+    //table == 'coins' ? this.showCoinTable = true : this.showCoinTable = false;
+    //this.drawer.toggle();
     this.navigateTo(table);
   }
 

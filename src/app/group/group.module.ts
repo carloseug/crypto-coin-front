@@ -16,6 +16,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ShowGroupComponent } from './show-group/show-group.component';
+import { RouterModule } from '@angular/router';
+import { MatMenuModule } from '@angular/material/menu';
+import { DialogModule } from '@angular/cdk/dialog';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import { ShowGroupComponent } from './show-group/show-group.component';
   imports: [
     CommonModule,
     HttpClientModule,
+    RouterModule,
     MatSortModule,
     MatTableModule,
     BrowserAnimationsModule,
@@ -38,10 +42,14 @@ import { ShowGroupComponent } from './show-group/show-group.component';
     FormsModule,
     MatInputModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatMenuModule,
   ],
   exports:[
-    GroupComponent
+    GroupComponent,
+    CreateGroupComponent,
+    ConfirmModalComponent,
+    ShowGroupComponent
   ]
 })
 export class GroupModule { }
