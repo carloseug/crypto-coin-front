@@ -18,7 +18,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ShowGroupComponent } from './show-group/show-group.component';
 import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
-import { DialogModule } from '@angular/cdk/dialog';
 
 @NgModule({
   declarations: [

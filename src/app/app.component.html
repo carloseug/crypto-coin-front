@@ -1,8 +1,24 @@
-
 <mat-drawer-container class="sidenav-container" autosize>  
     <app-header (toggleDrawer)="drawer.toggle()"></app-header>
+
+    <mat-drawer #drawer class="sidenav" mode="side" *ngIf="!loggedIn">
+      <mat-nav-list>
+          <button mat-button (click)="navigateTo('login')">
+            <mat-icon>login</mat-icon>
+            <p>Login</p>
+          </button>
+          <br>
+          <button mat-button (click)="navigateTo('signup')">
+            <mat-icon>person</mat-icon>
+            <p>Sign Up</p>
+          </button>
+        </mat-nav-list>
+    </mat-drawer>
+    <div class="sidenav-content" *ngIf="!loggedIn">
+      <router-outlet></router-outlet>
+    </div>
     
-    <mat-drawer #drawer class="sidenav" mode="side">
+    <mat-drawer #drawer class="sidenav" mode="side" *ngIf="loggedIn">
         <mat-nav-list>
             <button mat-button (click)="navigateTo('coins')">
               <mat-icon>monetization_on</mat-icon>
@@ -16,11 +32,15 @@
             <button mat-button (click)="navigateTo('files')">
               <mat-icon>image</mat-icon>
             <p>Files</p>
-          </button>
+            </button><br>
+            <button mat-button (click)="exit()">
+              <mat-icon>logout</mat-icon>
+            <p>Exit</p>
+            </button>
           </mat-nav-list>
     </mat-drawer>
     
-    <div class="sidenav-content">
+    <div class="sidenav-content" *ngIf="loggedIn">
       <router-outlet></router-outlet>
     </div>
 </mat-drawer-container>

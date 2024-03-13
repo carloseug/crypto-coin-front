@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoinModule } from './coin/coin.module';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,11 +12,12 @@ import { MatListModule } from '@angular/material/list';
 import { GroupModule } from './group/group.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FilesS3Module } from './files-s3/files-s3.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +28,7 @@ import { FilesS3Module } from './files-s3/files-s3.module';
     MatDialogModule,
     MatIconModule,
     MatListModule,
+    AuthModule,
     CoinModule,
     GroupModule,
     FilesS3Module

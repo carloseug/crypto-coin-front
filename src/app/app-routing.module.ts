@@ -6,9 +6,14 @@ import { ShowCoinComponent } from './coin/show-coin/show-coin.component';
 import { CreateGroupComponent } from './group/create-group/create-group.component';
 import { ShowGroupComponent } from './group/show-group/show-group.component';
 import { FilesS3Component } from './files-s3/files-s3/files-s3.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { ProfileComponent } from './auth/profile/profile.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'coins', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: 'coins', component: CoinComponent },
   { path: 'coins/detail/:id', component: ShowCoinComponent },
   { path: 'groups', component: GroupComponent },

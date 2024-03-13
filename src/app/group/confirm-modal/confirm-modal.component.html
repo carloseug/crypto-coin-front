@@ -1,13 +1,22 @@
-<div class="modal-dialog">
-    <div class="modal-content">
-      <h1 mat-dialog-title>{{ data.title }}</h1>
-      <div mat-dialog-content>
-        <p>{{ data.message }}</p>
-      </div>
-      <div mat-dialog-actions>
-        <button mat-button style="color: red"(click)="onNoClick()">Cancel</button>
-        <button mat-button style="color:green"color="warn" (click)="onYesClick()">Confirm</button>
-      </div>
-    </div>
+
+
+  <div class="cont-card modal-dialog">
+
+    <mat-card class="card modal-content">
+  
+      <mat-card-header style="padding-bottom: 30px;">
+        <mat-card-title>Are you sure?</mat-card-title>
+      </mat-card-header>
+  
+      <mat-card-content>
+        <p style="color: rgb(68, 65, 65);">{{data.message}}</p>
+      </mat-card-content>
+  
+      <mat-card-actions align="end">
+        <button mat-button style="color: red;" (click)="onNoClick()">Cancel</button>
+        <button mat-button style="color: green;" (click)="onYesClick()">Confirm</button>
+      </mat-card-actions>
+    </mat-card>
   </div>
+    
   

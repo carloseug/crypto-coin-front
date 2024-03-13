@@ -1,0 +1,35 @@
+<mat-card>
+    <mat-card-content>
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+        <h2>Sign Up</h2>
+        <mat-error *ngIf="!loginValid">
+            {{errorMessage}}
+        </mat-error>
+        <mat-form-field>
+            <input matInput placeholder="Name" [(ngModel)]="name" name="name" required>
+            <mat-error>
+            Required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Email" [(ngModel)]="email" name="email" required>
+            <mat-error>
+            Please provide a valid email address
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+            <mat-error>
+            Please provide a valid password
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" placeholder="Repeat Password" [(ngModel)]="passwordConfirmation" name="passwordConfirmation" required>
+            <mat-error *ngIf="passwordConfirmation !== password">
+                Passwords must be equal
+            </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Create</button>
+        </form>
+    </mat-card-content>
+</mat-card>
